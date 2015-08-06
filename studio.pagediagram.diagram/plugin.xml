@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="pagediagram_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="pagediagram_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/PageDiagramDiagramFile.gif"
+         extensions="pagediagram_diagram"
+         default="true"
+         class="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditor"
+         matchingStrategy="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramMatchingStrategy"
+         contributorClass="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="org.shaolin.uimaster.datamodel.pagediagram.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/PageDiagramDiagramFile.gif"
+  	     category="org.shaolin.uimaster.diagrams"
+  	     class="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramCreationWizard"
+  	     id="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="studio.pagediagram.diagram.InitDiagram"
+            nameFilter="*.pagediagram"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="studio.pagediagram.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="PagediagramPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="PagediagramPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="PagediagramRender">
+         <Priority name="Lowest"/>
+         <ViewId id="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="org.shaolin.uimaster.datamodel.pagediagram.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="studio.pagediagram.diagram.general"
+            name="%prefpage.studio.pagediagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="studio.pagediagram.diagram.appearance"
+            name="%prefpage.studio.pagediagram.diagram.appearance"
+            category="studio.pagediagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="studio.pagediagram.diagram.connections"
+            name="%prefpage.studio.pagediagram.diagram.connections"
+            category="studio.pagediagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="studio.pagediagram.diagram.printing"
+            name="%prefpage.studio.pagediagram.diagram.printing"
+            category="studio.pagediagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="studio.pagediagram.diagram.rulersAndGrid"
+            name="%prefpage.studio.pagediagram.diagram.rulersAndGrid"
+            category="studio.pagediagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="studio.pagediagram.diagram"
+            labelProvider="org.shaolin.uimaster.datamodel.pagediagram.diagram.sheet.PagediagramSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="studio.pagediagram.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.conditionnode"
+             label="%tab.conditionnode"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.flownode"
+             label="%tab.flownode"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.varmapping"
+             label="%tab.varmapping"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.scriptopt"
+             label="%tab.scriptopt"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.inputvar"
+             label="%tab.inputvar"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="studio.pagediagram.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.conditionnode"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.sheet.ConditionOutPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.ConditionalOutTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.flownode"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.sheet.FlowNodePropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.FlowNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.varmapping"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.sheet.VarMappingPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.ConditionalOutTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.DisplayOutTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.scriptopt"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.sheet.ScriptOperationPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.StartNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.LogicNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.PageNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.DisplayNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.inputvar"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.sheet.InputVarPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.WebChunkTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.StartNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.LogicNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.PageNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.FlowNodeTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.sheet.PagediagramPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="org.shaolin.uimaster.datamodel.pagediagram.diagram.providers.PagediagramViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Pagediagram"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="org.shaolin.uimaster.datamodel.pagediagram.diagram.providers.PagediagramEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Pagediagram"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value=""/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="org.shaolin.uimaster.datamodel.pagediagram.diagram.providers.PagediagramModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.WebChunkTypeEditPart" id="WebChunkType_1000"/>
+         <object class="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.StartNodeTypeEditPart" id="StartNodeType_2001"/>
+         <object class="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.DisplayNodeTypeEditPart" id="DisplayNodeType_2002"/>
+         <object class="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.FlowNodeTypeEditPart" id="FlowNodeType_2003"/>
+         <object class="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.PageNodeTypeEditPart" id="PageNodeType_2004"/>
+         <object class="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.LogicNodeTypeEditPart" id="LogicNodeType_2005"/>
+         <context elements="WebChunkType_1000,StartNodeType_2001,DisplayNodeType_2002,FlowNodeType_2003,PageNodeType_2004,LogicNodeType_2005,"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="org.shaolin.uimaster.datamodel.pagediagram.diagram.providers.PagediagramIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.WebChunkType_1000"
+               name="%metatype.name.WebChunkType_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="WebChunkType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.WebChunkTypeEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.StartNodeType_2001"
+               name="%metatype.name.StartNodeType_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="StartNodeType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.StartNodeTypeEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.DisplayNodeType_2002"
+               name="%metatype.name.DisplayNodeType_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DisplayNodeType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.DisplayNodeTypeEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.FlowNodeType_2003"
+               name="%metatype.name.FlowNodeType_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FlowNodeType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.FlowNodeTypeEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.PageNodeType_2004"
+               name="%metatype.name.PageNodeType_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PageNodeType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.PageNodeTypeEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.LogicNodeType_2005"
+               name="%metatype.name.LogicNodeType_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LogicNodeType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.LogicNodeTypeEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.ConditionalOutType_4001"
+               name="%metatype.name.ConditionalOutType_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ConditionalOutType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.ConditionalOutTypeEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/PageDiagram">
+         <metamodelType
+               id="studio.pagediagram.diagram.DisplayOutType_4002"
+               name="%metatype.name.DisplayOutType_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DisplayOutType"
+               edithelper="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.helpers.DisplayOutTypeEditHelper">
+            <param name="semanticHint" value="4002"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="studio.pagediagram.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="studio.pagediagram.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="studio.pagediagram.diagram.TypeContext">
+         <elementType ref="studio.pagediagram.diagram.WebChunkType_1000"/>
+         <elementType ref="studio.pagediagram.diagram.StartNodeType_2001"/>
+         <elementType ref="studio.pagediagram.diagram.DisplayNodeType_2002"/>
+         <elementType ref="studio.pagediagram.diagram.FlowNodeType_2003"/>
+         <elementType ref="studio.pagediagram.diagram.PageNodeType_2004"/>
+         <elementType ref="studio.pagediagram.diagram.LogicNodeType_2005"/>
+         <elementType ref="studio.pagediagram.diagram.ConditionalOutType_4001"/>
+         <elementType ref="studio.pagediagram.diagram.DisplayOutType_4002"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="studio.pagediagram.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="studio.pagediagram.diagram"
+           properties="isURIEditorInput"
+           class="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="studio.pagediagram.diagram.resourceContent"/>
+			<contentExtension pattern="studio.pagediagram.diagram.domainResourceContent"/>
+            <contentExtension pattern="studio.pagediagram.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="studio.pagediagram.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="studio.pagediagram.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramNavigatorContentProvider" 
+            labelProvider="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramNavigatorLabelProvider"
+            icon="icons/obj16/PageDiagramDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="pagediagram_diagram"/>
+               </and>
+               <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="studio.pagediagram.diagram.navigatorSorter" 
+               class="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="pagediagram_diagram"/>
+                  </and>
+                  <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="studio.pagediagram.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramDomainNavigatorContentProvider" 
+            labelProvider="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramDomainNavigatorLabelProvider"
+            icon="icons/obj16/PageDiagramDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="pagediagram"/>
+               </and>
+               <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="studio.pagediagram.diagram.navigatorActionProvider"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="studio.pagediagram.diagram.navigatorLinkHelper"
+            class="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="studio.pagediagram.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.navigator.PagediagramAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="org.shaolin.uimaster.datamodel.pagediagram.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="org.shaolin.uimaster.datamodel.pagediagram.diagram.updateDiagram"
+         contextId="org.shaolin.uimaster.datamodel.pagediagram.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="studio.pagediagram.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="org.shaolin.uimaster.datamodel.pagediagram.diagram.edit.parts.WebChunkTypeEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="studio.pagediagram.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.PagediagramDiagramEditorID"
+         defaultHandler="org.shaolin.uimaster.datamodel.pagediagram.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

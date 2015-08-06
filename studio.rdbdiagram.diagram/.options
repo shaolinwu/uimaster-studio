@@ -1,0 +1,7 @@
+# Tracing options for the studio.diagram.diagram plug-in
+
+# Common issues
+studio.diagram.diagram/debug=false
+
+# Visual IDs
+studio.diagram.diagram/debug/visualID=false

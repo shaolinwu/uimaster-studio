@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/studio.diagram/src" modelPluginID="studio.diagram"
+    modelName="Bediagram" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../studio/model/common.genmodel#//common">
+  <foreignModel>../../datamodel/src/main/resources/bediagram.xsd</foreignModel>
+  <genPackages prefix="BEDiagram" basePackage="org.shaolin.uimaster.datamodel" resource="XML"
+      disposableProviderFactory="true" ecorePackage="bediagram.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="bediagram.ecore#//PersistenceTypeType">
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//PersistenceTypeType/RDB"/>
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//PersistenceTypeType/XML"/>
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//PersistenceTypeType/LDAP"/>
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//PersistenceTypeType/MEM"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="bediagram.ecore#//RelationTypeType">
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//RelationTypeType/One2One"/>
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//RelationTypeType/One2N"/>
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//RelationTypeType/N2One"/>
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//RelationTypeType/N2N"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="bediagram.ecore#//StyleType">
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//StyleType/attribute"/>
+      <genEnumLiterals ecoreEnumLiteral="bediagram.ecore#//StyleType/element"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="bediagram.ecore#//PersistenceTypeTypeObject"/>
+    <genDataTypes ecoreDataType="bediagram.ecore#//RelationTypeTypeObject"/>
+    <genDataTypes ecoreDataType="bediagram.ecore#//StyleTypeObject"/>
+    <genClasses image="false" ecoreClass="bediagram.ecore#//BECollectionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BECollectionType/elementType"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//BEComplexType"/>
+    <genClasses ecoreClass="bediagram.ecore#//BEDiagramType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BEDiagramType/beEntity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BEDiagramType/ceEntity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BEDiagramType/bePackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BEDiagramType/cePackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BEDiagramType/diagramPackage"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//BEListType"/>
+    <genClasses ecoreClass="bediagram.ecore#//BEMapType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BEMapType/keyType"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//BEObjRefType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BEObjRefType/targetEntity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BEObjRefType/autoVersionUpdate"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//BEPrimitiveType"/>
+    <genClasses ecoreClass="bediagram.ecore#//BESetType"/>
+    <genClasses ecoreClass="bediagram.ecore#//BEType"/>
+    <genClasses ecoreClass="bediagram.ecore#//BinaryType"/>
+    <genClasses ecoreClass="bediagram.ecore#//BooleanType"/>
+    <genClasses ecoreClass="bediagram.ecore#//BusinessEntityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BusinessEntityType/parentObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BusinessEntityType/member"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BusinessEntityType/persistentConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BusinessEntityType/validatorConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//BusinessEntityType/searchMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BusinessEntityType/abbreviation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BusinessEntityType/extensible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BusinessEntityType/needEquals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//BusinessEntityType/needHistory"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//CEObjRefType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//CEObjRefType/targetEntity"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//ConstantEntityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantEntityType/effTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantEntityType/expTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//ConstantEntityType/constantValue"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//ConstantValueType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/i18nKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/intValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/effTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/expTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/passivated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ConstantValueType/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//DateTimeType"/>
+    <genClasses ecoreClass="bediagram.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bediagram.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bediagram.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//DocumentRoot/bEDiagram"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//DocumentRoot/businessEntity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//DocumentRoot/constantEntity"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//DoubleType"/>
+    <genClasses ecoreClass="bediagram.ecore#//DummyFieldType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//DummyFieldType/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//DummyFieldType/refDummyFieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//DummyFieldType/dummyFieldName"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//EntityNameWebServiceMappingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//EntityNameWebServiceMappingType/mappedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//EntityNameWebServiceMappingType/namespaceURI"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//EntityRelationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//EntityRelationType/entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//EntityRelationType/entity2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//EntityRelationType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//EntityRelationType/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//EntityRelationType/refedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//EntityRelationType/refedPriority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//EntityRelationType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//ExternalReferenceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ExternalReferenceType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ExternalReferenceType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//FileType"/>
+    <genClasses ecoreClass="bediagram.ecore#//IntType"/>
+    <genClasses ecoreClass="bediagram.ecore#//JavaObjRefType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//JavaObjRefType/targetJava"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//LongType"/>
+    <genClasses ecoreClass="bediagram.ecore#//MemberType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberType/defaultValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//MemberType/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//MemberType/metaInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberType/accessible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberType/modifiable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberType/transient"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//MemberWebServiceMappingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberWebServiceMappingType/collectionWrapped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberWebServiceMappingType/ignore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberWebServiceMappingType/mappedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//MemberWebServiceMappingType/style"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="bediagram.ecore#//ObjectRefType"/>
+    <genClasses ecoreClass="bediagram.ecore#//PersistentConfigType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//PersistentConfigType/supportedPersistenceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//PersistentConfigType/primaryKeyMember"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//ReferenceObjectType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//ReferenceObjectType/refType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ReferenceObjectType/refFieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ReferenceObjectType/fieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ReferenceObjectType/timeFieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ReferenceObjectType/mustHave"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//ReferenceObjectType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//RelationConstraintType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//RelationConstraintType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//RelationConstraintType/isEntity2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//RelationConstraintType/relationName"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//RelationKeyType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//RelationKeyType/fieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//RelationKeyType/isEntity2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//RelationKeyType/relationName"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//SearchMethodType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//SearchMethodType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//SearchMethodType/query"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bediagram.ecore#//SearchMethodType/conditionMappingName"/>
+    </genClasses>
+    <genClasses ecoreClass="bediagram.ecore#//StringType"/>
+    <genClasses ecoreClass="bediagram.ecore#//TimeType"/>
+    <genClasses ecoreClass="bediagram.ecore#//ValidatorConfigType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//ValidatorConfigType/dummyField"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//ValidatorConfigType/referenceConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bediagram.ecore#//ValidatorConfigType/externalReferenceConfig"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

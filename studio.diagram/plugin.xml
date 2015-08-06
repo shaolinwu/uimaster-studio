@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://bmdp.shaolin.org/datamodel/BEDiagram"
+            class="org.shaolin.uimaster.datamodel.bediagram.BEDiagramPackage"
+            genModel="model/bediagram.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="bediagram"
+            class="org.shaolin.uimaster.datamodel.bediagram.util.BEDiagramResourceFactoryImpl"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://bmdp.shaolin.org/datamodel/RDBDiagram"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.RDBDiagramPackage"
+            genModel="model/bediagram.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="rdbdiagram"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.util.RDBDiagramResourceFactoryImpl"/>
+   </extension>
+
+	<extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://bmdp.shaolin.org/datamodel/PageDiagram"
+            class="org.shaolin.uimaster.datamodel.pagediagram.PageDiagramPackage"
+            genModel="model/bediagram.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="pagediagram"
+            class="org.shaolin.uimaster.datamodel.pagediagram.util.PageDiagramResourceFactoryImpl"/>
+   </extension>
+</plugin>

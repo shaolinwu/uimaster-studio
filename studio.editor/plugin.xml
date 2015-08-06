@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.shaolin.uimaster.datamodel.page.presentation.PageModelWizardID"
+            name="%_UI_PageModelWizard_label"
+            class="org.shaolin.uimaster.datamodel.page.presentation.PageModelWizard"
+            category="org.shaolin.uimaster.diagrams"
+            icon="icons/full/obj16/PageModelFile.gif">
+         <description>%_UI_PageModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.shaolin.uimaster.datamodel.page.presentation.PageEditorID"
+            name="%_UI_PageEditor_label"
+            icon="icons/full/obj16/PageModelFile.gif"
+            extensions="page"
+            class="org.shaolin.uimaster.datamodel.page.presentation.PageEditor"
+            contributorClass="org.shaolin.uimaster.datamodel.page.presentation.PageActionBarContributor">
+      </editor>
+   </extension>
+   
+</plugin>

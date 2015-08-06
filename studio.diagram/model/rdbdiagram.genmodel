@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/studio.diagram/src" modelPluginID="studio.diagram"
+    modelName="Rdbdiagram" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../studio/model/common.genmodel#//common">
+  <foreignModel>rdbdiagram.ecore</foreignModel>
+  <genPackages prefix="RDBDiagram" basePackage="org.shaolin.uimaster.datamodel" resource="XML"
+      disposableProviderFactory="true" ecorePackage="rdbdiagram.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rdbdiagram.ecore#//MappingTypeType">
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//MappingTypeType/OneToOne"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//MappingTypeType/OneToMany"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//MappingTypeType/ManyToMany"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rdbdiagram.ecore#//OnDeleteType">
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//OnDeleteType/CASCADE"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//OnDeleteType/SETNULL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rdbdiagram.ecore#//TypeType">
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/BIGINT"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/BIT"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/BLOB"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/BLOB2"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/CLOB"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/CLOB2"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/DECIMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/DATETIME"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/TIMESTAMP"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//TypeType/VARCHAR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rdbdiagram.ecore#//ViewOpType">
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//ViewOpType/JOIN"/>
+      <genEnumLiterals ecoreEnumLiteral="rdbdiagram.ecore#//ViewOpType/UNION"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="rdbdiagram.ecore#//MappingTypeTypeObject"/>
+    <genDataTypes ecoreDataType="rdbdiagram.ecore#//OnDeleteTypeObject"/>
+    <genDataTypes ecoreDataType="rdbdiagram.ecore#//TypeTypeObject"/>
+    <genDataTypes ecoreDataType="rdbdiagram.ecore#//ViewOpTypeObject"/>
+    <genClasses ecoreClass="rdbdiagram.ecore#//ClassMappingType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ClassMappingType/businessEntity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ClassMappingType/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ClassMappingType/historyTable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ClassMappingType/view"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ClassMappingType/parentClassMapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ClassMappingType/fieldMapping"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//ColumnType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/isNull"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/redundant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ColumnType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rdbdiagram.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rdbdiagram.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//DocumentRoot/classMapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//DocumentRoot/rDBDiagram"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//FieldMappingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FieldMappingType/beFieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FieldMappingType/columnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FieldMappingType/isTimestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FieldMappingType/redundant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FieldMappingType/useClobBuffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FieldMappingType/associationName"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//FKType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FKType/columnName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//FKType/refTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FKType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//FKType/onDelete"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//IndexType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//IndexType/column"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//IndexType/isClustered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//IndexType/isUnique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//IndexType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//InheritAssociationType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//InheritAssociationType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//InheritAssociationType/parentTable"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//JoinTableType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//JoinTableType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//JoinTableType/srcPKColumn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//JoinTableType/srcTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//JoinTableType/tarTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//JoinTableType/tarPKColumn"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//ListFieldMappingType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ListFieldMappingType/collectionTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ListFieldMappingType/isPrivateOwned"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ListFieldMappingType/mappingType"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//PKType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//PKType/columnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//PKType/sequenceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//PKType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//RDBDiagramType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//RDBDiagramType/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//RDBDiagramType/view"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//RDBDiagramType/joinTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//RDBDiagramType/daoPackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//RDBDiagramType/diagramPackage"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//RDBType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//RDBType/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//RDBType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//SequenceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//SequenceType/dbcache"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//SequenceType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//SequenceType/span"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//SequenceType/startWith"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//TableType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//TableType/column"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//TableType/index"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//TableType/sequence"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//TableType/primaryKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//TableType/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//TableType/inheritAsscociation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//TableType/mapping"/>
+    </genClasses>
+    <genClasses ecoreClass="rdbdiagram.ecore#//ViewType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ViewType/baseTable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rdbdiagram.ecore#//ViewType/extTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rdbdiagram.ecore#//ViewType/op"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

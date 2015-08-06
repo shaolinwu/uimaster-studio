@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/studio.diagram/src" modelPluginID="studio.diagram"
+    modelName="Pagediagram" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../studio/model/common.genmodel#//common">
+  <foreignModel>../../datamodel/src/main/resources/pagediagram.xsd</foreignModel>
+  <genPackages prefix="PageDiagram" basePackage="org.shaolin.uimaster.datamodel" resource="XML"
+      disposableProviderFactory="true" ecorePackage="pagediagram.ecore#/">
+    <genClasses ecoreClass="pagediagram.ecore#//ConditionalOutType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//ConditionalOutType/conditionExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//DisplayNodeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//DisplayNodeType/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//DisplayNodeType/queryString"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//DisplayNodeType/path"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//DisplayOutType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//DisplayOutType/inputData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//DisplayOutType/outputData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//DisplayOutType/ajaxHandling"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pagediagram.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pagediagram.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//DocumentRoot/webChunk"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//DynamicOutType"/>
+    <genClasses ecoreClass="pagediagram.ecore#//FlowNodeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//FlowNodeType/destChunkName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//FlowNodeType/destNode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//FlowNodeType/dataMappingToNode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//FlowNodeType/dataMappingToChunk"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//LogicNodeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//LogicNodeType/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//LogicNodeType/operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//LogicNodeType/needTransaction"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//NextType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//NextType/destChunkName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//NextType/destNode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//NextType/outDataMappingToNode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//NextType/outDataMappingToChunk"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//NextType/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pagediagram.ecore#//OutType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//OutType/next"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//OutType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//PageNodeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//PageNodeType/sourceEntity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//PageNodeType/inputData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//PageNodeType/operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//PageNodeType/needTransaction"/>
+    </genClasses>
+    <genClasses ecoreClass="pagediagram.ecore#//StartNodeType"/>
+    <genClasses ecoreClass="pagediagram.ecore#//WebChunkType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//WebChunkType/webNode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//WebChunkType/globalVariable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//WebChunkType/errorHandler"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//WebChunkType/accessPermission"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pagediagram.ecore#//WebNodeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pagediagram.ecore#//WebNodeType/out"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//WebNodeType/accessPermission"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//WebNodeType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//WebNodeType/displayName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pagediagram.ecore#//WebNodeType/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,49 @@
+/**
+ */
+package org.shaolin.uimaster.datamodel.bediagram.util;
+
+import java.util.Map;
+
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+
+import org.shaolin.uimaster.datamodel.bediagram.BEDiagramPackage;
+
+/**
+ * This class contains helper methods to serialize and deserialize XML documents
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class BEDiagramXMLProcessor extends XMLProcessor {
+
+	/**
+	 * Public constructor to instantiate the helper.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BEDiagramXMLProcessor() {
+		super((EPackage.Registry.INSTANCE));
+		BEDiagramPackage.eINSTANCE.eClass();
+	}
+	
+	/**
+	 * Register for "*" and "xml" file extensions the BEDiagramResourceFactoryImpl factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected Map<String, Resource.Factory> getRegistrations() {
+		if (registrations == null) {
+			super.getRegistrations();
+			registrations.put(XML_EXTENSION, new BEDiagramResourceFactoryImpl());
+			registrations.put(STAR_EXTENSION, new BEDiagramResourceFactoryImpl());
+		}
+		return registrations;
+	}
+
+} //BEDiagramXMLProcessor

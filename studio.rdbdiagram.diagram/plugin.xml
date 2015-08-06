@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="rdbdiagram_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="rdbdiagram_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/RDBDiagramDiagramFile.gif"
+         extensions="rdbdiagram_diagram"
+         default="true"
+         class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditor"
+         matchingStrategy="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramMatchingStrategy"
+         contributorClass="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/RDBDiagramDiagramFile.gif"
+  	     category="org.shaolin.uimaster.diagrams"
+  	     class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramCreationWizard"
+  	     id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="studio.rdbdiagram.diagram.InitDiagram"
+            nameFilter="*.rdbdiagram"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="studio.rdbdiagram.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="RdbdiagramPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="RdbdiagramPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="RdbdiagramRender">
+         <Priority name="Lowest"/>
+         <ViewId id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="studio.rdbdiagram.diagram.general"
+            name="%prefpage.studio.rdbdiagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="studio.rdbdiagram.diagram.appearance"
+            name="%prefpage.studio.rdbdiagram.diagram.appearance"
+            category="studio.rdbdiagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="studio.rdbdiagram.diagram.connections"
+            name="%prefpage.studio.rdbdiagram.diagram.connections"
+            category="studio.rdbdiagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="studio.rdbdiagram.diagram.printing"
+            name="%prefpage.studio.rdbdiagram.diagram.printing"
+            category="studio.rdbdiagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="studio.rdbdiagram.diagram.rulersAndGrid"
+            name="%prefpage.studio.rdbdiagram.diagram.rulersAndGrid"
+            category="studio.rdbdiagram.diagram.general"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="studio.rdbdiagram.diagram"
+            labelProvider="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.sheet.RdbdiagramSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+         <propertyCategory category="ormapping"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="studio.rdbdiagram.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.ormapping"
+             label="%tab.ormapping"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.fk"
+             label="%tab.fk"/>
+         <propertyTab
+             category="domain"
+             id="property.tab.pk"
+             label="%tab.pk"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+   
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="studio.rdbdiagram.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.fk"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.sheet.ForeignKeyPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.pk"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.sheet.PrimaryKeyPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.ormapping"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.sheet.ORMappingPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+         </propertySection>
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.sheet.RdbdiagramPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.RDBDiagramTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableMemberTypeEditPart"/>
+            <input type="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+      
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.providers.RdbdiagramViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Rdbdiagram"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2011,2002,4002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4003,4004"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.providers.RdbdiagramEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Rdbdiagram"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2011,2002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4003,4004"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value=""/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.providers.RdbdiagramModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.RDBDiagramTypeEditPart" id="RDBDiagramType_1000"/>
+         <object class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableTypeEditPart" id="TableType_2001"/>
+         <object class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableMemberContainerEditPart" id="TableType_2011"/>
+         <object class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.ViewTypeEditPart" id="ViewType_2002"/>
+         <object class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.TableMemberTypeEditPart" id="TableType_ColumnType_4002"/>
+         <object class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.JoinTableTypeEditPart" id="TableType_JoinTableType_4003"/>
+         <object class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.InheritTypeEditPart" id="TableType_Inherit_4004"/>
+         <context elements="RDBDiagramType_1000,TableType_2001,TableType_2011,ViewType_2002,TableType_ColumnType_4002,TableType_JoinTableType_4003,TableType_Inherit_4004"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.providers.RdbdiagramIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.RDBDiagramType_1000"
+               name="%metatype.name.RDBDiagramType_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="RDBDiagramType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.RDBDiagramTypeEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.TableType_2001"
+               name="%metatype.name.TableType_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TableType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.TableTypeEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <specializationType
+               id="studio.rdbdiagram.diagram.TableType_2011"
+               name="%metatype.name.TableType_2011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="studio.rdbdiagram.diagram.TableType_2001"/>
+            <param name="semanticHint" value="2011"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.ViewType_2002"
+               name="%metatype.name.ViewType_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ViewType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.ViewTypeEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.FKType_4001"
+               name="%metatype.name.FKType_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FKType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.FKTypeEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.PKType_4005"
+               name="%metatype.name.PKType_4005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PKType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.FKTypeEditHelper">
+            <param name="semanticHint" value="4005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.ColumnType_4002"
+               name="%metatype.name.ColumnType_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ColumnType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.ColumnTypeEditHelper">
+            <param name="semanticHint" value="4002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.JoinTableType_4003"
+               name="%metatype.name.JoinTableType_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="JoinTableType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.ColumnTypeEditHelper">
+            <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bmdp.shaolin.org/datamodel/RDBDiagram">
+         <metamodelType
+               id="studio.rdbdiagram.diagram.Inherit_4004"
+               name="%metatype.name.Inherit_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InheritAssociationType"
+               edithelper="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.helpers.ColumnTypeEditHelper">
+            <param name="semanticHint" value="4004"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="studio.rdbdiagram.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="studio.rdbdiagram.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="studio.rdbdiagram.diagram.TypeContext">
+         <elementType ref="studio.rdbdiagram.diagram.RDBDiagramType_1000"/>
+         <elementType ref="studio.rdbdiagram.diagram.TableType_2001"/>
+         <elementType ref="studio.rdbdiagram.diagram.TableType_2011"/>
+         <elementType ref="studio.rdbdiagram.diagram.ViewType_2002"/>
+         <elementType ref="studio.rdbdiagram.diagram.FKType_4001"/>
+         <elementType ref="studio.rdbdiagram.diagram.PKType_4005"/>
+         <elementType ref="studio.rdbdiagram.diagram.ColumnType_4002"/>
+         <elementType ref="studio.rdbdiagram.diagram.JoinTableType_4003"/>
+         <elementType ref="studio.rdbdiagram.diagram.Inherit_4004"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="studio.rdbdiagram.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="studio.rdbdiagram.diagram"
+           properties="isURIEditorInput"
+           class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="studio.rdbdiagram.diagram.resourceContent"/>
+			<contentExtension pattern="studio.rdbdiagram.diagram.domainResourceContent"/>
+            <contentExtension pattern="studio.rdbdiagram.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="studio.rdbdiagram.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="studio.rdbdiagram.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramNavigatorContentProvider" 
+            labelProvider="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramNavigatorLabelProvider"
+            icon="icons/obj16/RDBDiagramDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="rdbdiagram_diagram"/>
+               </and>
+               <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="studio.rdbdiagram.diagram.navigatorSorter" 
+               class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="rdbdiagram_diagram"/>
+                  </and>
+                  <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="studio.rdbdiagram.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramDomainNavigatorContentProvider" 
+            labelProvider="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramDomainNavigatorLabelProvider"
+            icon="icons/obj16/RDBDiagramDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="rdbdiagram"/>
+               </and>
+               <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="studio.rdbdiagram.diagram.navigatorActionProvider"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="studio.rdbdiagram.diagram.navigatorLinkHelper"
+            class="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="studio.rdbdiagram.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.navigator.RdbdiagramAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.updateDiagram"
+         contextId="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="studio.rdbdiagram.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.edit.parts.RDBDiagramTypeEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="studio.rdbdiagram.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.RdbdiagramDiagramEditorID"
+         defaultHandler="org.shaolin.uimaster.datamodel.rdbdiagram.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>
